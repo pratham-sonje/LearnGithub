@@ -1,0 +1,89 @@
+:root {
+  --font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  
+  /* Light Theme */
+  --bg-gradient: linear-gradient(135deg, #f0f4ff 0%, #eef2f6 50%, #fdf2f8 100%);
+  --bg-card: #ffffff;
+  --bg-input: #f8fafc;
+  --bg-hover: #f1f5f9;
+  --bg-active: #e2e8f0;
+  --border-color: #e2e8f0;
+  --border-focus: #6366f1;
+
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #94a3b8;
+
+  --primary-color: #6366f1;
+  --primary-hover: #4f46e5;
+  --primary-light: rgba(99, 102, 241, 0.1);
+
+  --danger-color: #ef4444;
+  --danger-bg: rgba(239, 68, 68, 0.1);
+
+  --card-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.07), 0 0 1px 1px rgba(0, 0, 0, 0.05);
+  --item-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+  --item-shadow-hover: 0 8px 16px -4px rgba(0, 0, 0, 0.08);
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-full: 9999px;
+  
+  color-scheme: light;
+}
+
+[data-theme='dark'] {
+  /* Dark Theme */
+  --bg-gradient: linear-gradient(135deg, #0b0f19 0%, #0f172a 50%, #1e1b4b 100%);
+  --bg-card: #1e293b;
+  --bg-input: #0f172a;
+  --bg-hover: #334155;
+  --bg-active: #475569;
+  --border-color: #334155;
+  --border-focus: #818cf8;
+
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+
+  --primary-color: #818cf8;
+  --primary-hover: #6366f1;
+  --primary-light: rgba(129, 140, 248, 0.15);
+
+  --danger-color: #f87171;
+  --danger-bg: rgba(248, 113, 113, 0.15);
+
+  --card-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 1px 1px rgba(255, 255, 255, 0.05);
+  --item-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  --item-shadow-hover: 0 8px 20px -4px rgba(0, 0, 0, 0.4);
+
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.25s ease, border-color 0.25s ease, color 0.2s ease;
+}
+
+body {
+  font-family: var(--font-family);
+  background: var(--bg-gradient);
+  color: var(--text-primary);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 32px 16px;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  width: 100%;
+  max-width: 720px;
+  display: flex;
+  justify-content: center;
+}
