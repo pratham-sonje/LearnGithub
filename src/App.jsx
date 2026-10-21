@@ -61,6 +61,17 @@ export default function App() {
       createdAt: new Date().toISOString()
     };
     setTodos((prev) => [newTodo, ...prev]);
+
+    // Ensure the new task is immediately visible even if conflicting filters are active
+    if (statusFilter === 'completed') {
+      setStatusFilter('all');
+    }
+    if (categoryFilter !== 'all' && categoryFilter !== category) {
+      setCategoryFilter('all');
+    }
+    if (searchQuery.trim() && !text.toLowerCase().includes(searchQuery.toLowerCase())) {
+      setSearchQuery('');
+    }
   };
 
   // Toggle single todo
@@ -122,10 +133,10 @@ export default function App() {
       })
       .sort((a, b) => {
         if (sortBy === 'newest') {
-          return new Date(b.createdAt) - new Date(a.createdAt);
+          return new Date(b.createdAt || 0) - new Date(a.createdAt || 0);
         }
         if (sortBy === 'oldest') {
-          return new Date(a.createdAt) - new Date(b.createdAt);
+          return new Date(a.createdAt || 0) - new Date(b.createdAt || 0);
         }
         if (sortBy === 'priority') {
           const priorityWeights = { high: 3, medium: 2, low: 1 };
