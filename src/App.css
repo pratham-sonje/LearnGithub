@@ -252,6 +252,7 @@
   gap: 6px;
   cursor: pointer;
   font-family: inherit;
+  flex-shrink: 0;
 }
 
 .options-toggle-btn.active,
@@ -265,7 +266,7 @@
   color: #ffffff;
   border: none;
   border-radius: var(--radius-sm);
-  padding: 9px 18px;
+  padding: 9px 20px;
   font-size: 14px;
   font-weight: 600;
   display: flex;
@@ -273,15 +274,44 @@
   gap: 6px;
   cursor: pointer;
   font-family: inherit;
+  flex-shrink: 0;
+  transition: background-color 0.15s ease, transform 0.1s ease, box-shadow 0.15s ease;
+  user-select: none;
 }
 
-.add-task-btn:hover:not(:disabled) {
+.add-task-btn:hover {
   background: var(--primary-hover);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.35);
 }
 
-.add-task-btn:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
+.add-task-btn:active {
+  transform: scale(0.96);
+}
+
+.todo-input-form.has-error {
+  border-color: var(--danger-color);
+  animation: inputShake 0.35s ease;
+}
+
+.input-error-message {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--danger-color);
+  padding: 4px 8px;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes inputShake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-5px); }
+  40%, 80% { transform: translateX(5px); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-3px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .input-options-drawer {
